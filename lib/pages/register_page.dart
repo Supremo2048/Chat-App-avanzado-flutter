@@ -12,17 +12,17 @@ class RegisterPage extends StatelessWidget {
       backgroundColor: const Color(0xffF2F2F2),
       body: SafeArea(
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          child: Container(
+          physics: const BouncingScrollPhysics(),
+          child: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Logo(
+                const Logo(
                   titulo: 'Registro',
                 ),
                 _Form(),
-                Labels(
+                const Labels(
                   route: 'login',
                   titulo: 'ya tienes cuenta?',
                   subTutulo: 'Ingresa aqui!',

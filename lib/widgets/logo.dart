@@ -10,16 +10,16 @@ class Logo extends StatelessWidget {
         child: SafeArea(
       child: Container(
         width: 170,
-        margin: EdgeInsets.only(top: 50),
+        margin: const EdgeInsets.only(top: 50),
         child: Column(
           children: [
-            Image(image: AssetImage('assets/tag-logo.png')),
-            SizedBox(
+            const Image(image: AssetImage('assets/tag-logo.png')),
+            const SizedBox(
               height: 20,
             ),
             Text(
               titulo,
-              style: TextStyle(fontSize: 30),
+              style: const TextStyle(fontSize: 30),
             )
           ],
         ),

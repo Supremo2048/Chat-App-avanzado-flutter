@@ -26,19 +26,19 @@ class CustomInput extends StatelessWidget {
           boxShadow: <BoxShadow>[
             BoxShadow(
                 color: Colors.black.withOpacity(0.05),
-                offset: Offset(0, 5),
+                offset: const Offset(0, 5),
                 blurRadius: 5)
           ]),
       child: TextField(
-        controller: this.textController,
+        controller: textController,
         autocorrect: false,
-        keyboardType: this.keyboardType,
-        obscureText: this.isPassword,
+        keyboardType: keyboardType,
+        obscureText: isPassword,
         decoration: InputDecoration(
-            prefixIcon: Icon(this.icon),
+            prefixIcon: Icon(icon),
             focusedBorder: InputBorder.none,
             border: InputBorder.none,
-            hintText: this.placeHolder),
+            hintText: placeHolder),
       ),
     );
   }

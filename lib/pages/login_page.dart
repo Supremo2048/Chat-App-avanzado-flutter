@@ -12,17 +12,17 @@ class LoginPage extends StatelessWidget {
       backgroundColor: const Color(0xffF2F2F2),
       body: SafeArea(
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          child: Container(
+          physics: const BouncingScrollPhysics(),
+          child: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Logo(
+                const Logo(
                   titulo: 'Login',
                 ),
                 _Form(),
-                Labels(
+                const Labels(
                   route: 'register',
                   titulo: 'no tienes cuenta?',
                   subTutulo: 'Crea una cuenta Ahora!',
