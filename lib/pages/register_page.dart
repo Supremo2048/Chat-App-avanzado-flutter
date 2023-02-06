@@ -1,7 +1,10 @@
+import 'package:chat_app/helper/show_alert.dart';
 import 'package:chat_app/widgets/boton_azul.dart';
 import 'package:chat_app/widgets/custom_input.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../services/auth_services.dart';
 import '../widgets/labels.dart';
 import '../widgets/logo.dart';
 
@@ -52,6 +55,7 @@ class __FormState extends State<_Form> {
 
   @override
   Widget build(BuildContext context) {
+    final authService = Provider.of<AuthServices>(context);
     return Container(
       margin: const EdgeInsets.only(top: 25),
       padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -77,11 +81,20 @@ class __FormState extends State<_Form> {
           ),
           BotonAzul(
             text: 'Registro',
-            onPressed: () {
-              print(nameCtrl.text);
-              print(emailCtrl.text);
-              print(passCtrl.text);
-            },
+            onPressed: authService.authenticating
+                ? null
+                : () async {
+                    FocusScope.of(context).unfocus();
+
+                    final registerOk = await authService.register(
+                        nameCtrl.text, emailCtrl.text, passCtrl.text);
+                    if (registerOk == true) {
+                      //TODO: Navegar a otra pantalla
+                      Navigator.pushReplacementNamed(context, 'usuarios');
+                    } else {
+                      showAlert(context, 'Registro Incorrecto', registerOk);
+                    }
+                  },
           )
         ],
       ),
